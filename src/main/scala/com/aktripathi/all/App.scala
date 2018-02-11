@@ -8,6 +8,8 @@ import org.apache.spark.sql.streaming.OutputMode
 
 /**
  * @author aktripathi
+  *
+  *         Reading from Kafka...
  */
 object App {
 
@@ -22,9 +24,6 @@ object App {
       .master("local[4]") // More than 1
       .appName("spark-example")
       .getOrCreate()
-    //create stream from socket
-
-    //sparkSession.sparkContext.setLogLevel("ERROR")
 
     val topics = "example"
     val  subscribeType = "subscribe"
@@ -33,7 +32,7 @@ object App {
     val netflow = sparkSession
       .readStream
       .format("kafka")
-      .option("kafka.bootstrap.servers", "127.0.0.1:9092")
+      .option("kafka.bootstrap.servers", "127.0.0.1:9092") // This IP has to be resolved against kafka published name
       .option("value.deserializer" , classOf[StringDeserializer].getCanonicalName)
       .option("startingOffsets", "latest")
       .option("includeTimestamp", true)
