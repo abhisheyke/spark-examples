@@ -12,7 +12,7 @@
     <encoding>UTF-8</encoding>
     <scala.version>2.11.8</scala.version>
     <scala.compat.version>2.11</scala.compat.version>
-    <spark.version>2.2.1</spark.version>
+    <spark.version>2.3.0</spark.version>
     <scala.compat.version>2.11</scala.compat.version>
   </properties>
 
@@ -21,6 +21,12 @@
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-library</artifactId>
       <version>${scala.version}</version>
+    </dependency>
+
+    <dependency> <!-- Spark Streaming -->
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-streaming-kafka-0-8_2.11</artifactId>
+      <version>${spark.version}</version>
     </dependency>
 
     <dependency>

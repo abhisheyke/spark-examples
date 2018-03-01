@@ -25,10 +25,6 @@ object App {
       .appName("spark-example")
       .getOrCreate()
 
-    val topics = "example"
-    val  subscribeType = "subscribe"
-
-
     val netflow = sparkSession
       .readStream
       .format("kafka")
@@ -36,8 +32,8 @@ object App {
       .option("value.deserializer" , classOf[StringDeserializer].getCanonicalName)
       .option("startingOffsets", "latest")
       .option("includeTimestamp", true)
-      .option(subscribeType, topics)
-      .load().select( col("timestamp").alias("ingestion_timestamp"), col("value").cast("string").alias("kafka_msg"))
+      .option("subscribe", "example")
+      .load()//.select( col("timestamp").alias("ingestion_timestamp"), col("value").cast("string").alias("kafka_msg"))
 
 
     val query =
