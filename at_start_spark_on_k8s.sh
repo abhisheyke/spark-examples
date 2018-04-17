@@ -17,5 +17,5 @@ SPARK_HOME/bin/spark-submit --master k8s://https://k8s-master:6443 \
                             --name spark-abhi \
                             --class com.aktripathi.k8s.TryK8S \
                             --conf spark.executor.instances=2 \
-                            --conf spark.kubernetes.container.image=k8s-master:5000/abhit/spark:2.0.5 \
+                            --conf spark.kubernetes.container.image=k8s-master:5000/abhit/spark:2.3.0 \
                             local:///opt/spark/examples/jars/abhi-shade-spark-example-x.y.z.jar
